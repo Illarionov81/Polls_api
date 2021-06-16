@@ -6,20 +6,20 @@
 ---------------------------------------------------------------
 # Установка.
  1. Cклонировать проект с GitHub:
- 2. * $ git clone git@github.com:Illarionov81/Polls_api.git
- 3. Cоздайте виртуальное окружение:
+   * $ git clone git@github.com:Illarionov81/Polls_api.git
+ 2. Cоздайте виртуальное окружение:
    * ```$ cd Polls_api/```
    * ```Polls_api$ python3 -m venv venv```
- 4. Активируйте его:
+ 3. Активируйте его:
    * ```Polls_api$ . venv/bin/activate```
- 5. Устанавите окружение:
+ 4. Устанавите окружение:
    * ```(venv)Polls_api$ pip install -r requirements.txt```
- 6. Проведите Мигрирацию БД:
+ 5. Проведите Мигрирацию БД:
    * ```Polls_api$ cd source/```
    * ```(venv)Polls_api/source$ python manage.py migrate```
- 7. Запустить сервер:
+ 6. Запустить сервер:
    * ```./manage.py runserver```
- 8. Загрузить дамп:  
+ 7. Загрузить дамп:  
    * ```Polls_api/source$ ./manage.py loaddata ../fixtures/auth.json ```
    ----------------------------------------------
 
