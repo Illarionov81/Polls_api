@@ -6,7 +6,7 @@
 ---------------------------------------------------------------
 # Установка.
  1. Cклонировать проект с GitHub:  
-   * $ git clone git@github.com:Illarionov81/Polls_api.git
+   * ```$ git clone git@github.com:Illarionov81/Polls_api.git```
  2. Cоздайте виртуальное окружение:
    * ```$ cd Polls_api/```
    * ```Polls_api$ python3 -m venv venv```
@@ -24,17 +24,17 @@
    ----------------------------------------------
 
  ## Endpoints:
-  - получение списка активных опросов:  
-    * http://localhost:8000/api/polls/
-  - post запрос на создание ответа на вопрос:  
-    * http://localhost:8000/api/answers/ 
-    * json exampl - {
-        "question": 4,
-        "answer": "text",
-        "user_id": 5528
-    }
-   - получение пройденных пользователем опросов с детализацией по ответам:  
-    * http://localhost:8000/api/polls/5528/user_answers/ 
+     - получение списка активных опросов:  
+       * http://localhost:8000/api/polls/
+     - post запрос на создание ответа на вопрос:  
+       * http://localhost:8000/api/answers/ 
+       * json exampl - {
+           "question": 4,
+           "answer": "text",
+           "user_id": 5528
+       }
+      - получение пройденных пользователем опросов с детализацией по ответам:  
+       * http://localhost:8000/api/polls/5528/user_answers/ 
     
 ## Для администратора системы (с ограниченными правами):  
     - авторизация в системе:  
