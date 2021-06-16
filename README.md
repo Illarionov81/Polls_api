@@ -17,10 +17,10 @@
  5. Проведите Мигрирацию БД:
    * ```Polls_api$ cd source/```
    * ```(venv)Polls_api/source$ python manage.py migrate```
- 6. Запустить сервер:
+ 6. Загрузить дамп:  
+   * ```Polls_api/source$ ./manage.py loaddata  fixtures/auth.json ```
+ 7. Запустить сервер:
    * ```./manage.py runserver```
- 7. Загрузить дамп:  
-   * ```Polls_api/source$ ./manage.py loaddata ../fixtures/auth.json ```
    ----------------------------------------------
 
  ## Endpoints:
