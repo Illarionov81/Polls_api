@@ -24,7 +24,7 @@ class PollsViewSet(ViewSet):
         return Response(slr.data)
 
     @action(methods=['get'], detail=True)
-    def poll_with_users_answers(self, request, pk=None):
+    def user_answers(self, request, pk=None):
         polls = Polls.objects.filter(questions__answer__user_id=pk)
         slr = PollsWithAnswerSerializer(polls, many=True, context={'request': request})
         return Response(slr.data)
