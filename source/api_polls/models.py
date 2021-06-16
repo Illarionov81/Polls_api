@@ -41,7 +41,7 @@ class Questions(models.Model):
 
 
 class UsersTextAnswers(models.Model):
-    question = models.ForeignKey('api_polls.Questions', verbose_name='question', related_name='User_answer',
+    question = models.ForeignKey('api_polls.Questions', verbose_name='question', related_name='answer',
                                  on_delete=models.CASCADE)
     answer = models.TextField(max_length=3500, verbose_name='Users text answer')
     user_id = models.IntegerField(verbose_name='User id')
@@ -52,28 +52,3 @@ class UsersTextAnswers(models.Model):
     class Meta:
         verbose_name = 'Users Answer'
         verbose_name_plural = 'Users Answers'
-
-
-# class ChoiceOneAnswers(models.Model):
-#     question = models.ForeignKey('api_polls.Questions', verbose_name='question', related_name='Choice one answer',
-#                                  on_delete=models.CASCADE)
-#     answer = models.OneToOneField('api_polls.PreparedAnswers', )
-#     user_id = models.IntegerField(verbose_name='User id')
-#
-#     def __str__(self):
-#         return f'{self.answer}'
-#
-#     class Meta:
-#         verbose_name = 'UsersAnswer'
-#         verbose_name_plural = 'UsersAnswers'
-#
-#
-# class PreparedAnswers(models.Model):
-#     answer = models.TextField(max_length=3500, verbose_name='prepared answer')
-#
-#     def __str__(self):
-#         return f'{self.answer}'
-#
-#     class Meta:
-#         verbose_name = 'Prepared Answer'
-#         verbose_name_plural = 'Prepared Answers'

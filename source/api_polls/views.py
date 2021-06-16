@@ -1,10 +1,12 @@
-from django.shortcuts import get_object_or_404
-from rest_framework.response import Response
-from rest_framework.viewsets import ViewSet
 from datetime import datetime
 
-from api_polls.serializers import PollsSerializer, UsersTextAnswersSerializer
+from django.shortcuts import get_object_or_404
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework.viewsets import ViewSet
+
 from api_polls.models import Polls, UsersTextAnswers
+from api_polls.serializers import PollsSerializer, UsersTextAnswersSerializer, PollsWithAnswerSerializer
 
 
 class PollsViewSet(ViewSet):
@@ -21,6 +23,12 @@ class PollsViewSet(ViewSet):
         slr = PollsSerializer(article, context={'request': request})
         return Response(slr.data)
 
+    @action(methods=['get'], detail=True)
+    def poll_with_users_answers(self, request, pk=None):
+        polls = Polls.objects.filter(questions__answer__user_id=pk)
+        slr = PollsWithAnswerSerializer(polls, many=True, context={'request': request})
+        return Response(slr.data)
+
 
 class AnswerViewSet(ViewSet):
     queryset = UsersTextAnswers.objects.all()
@@ -32,4 +40,3 @@ class AnswerViewSet(ViewSet):
             return Response(slr.data)
         else:
             return Response(slr.errors, status=400)
-
